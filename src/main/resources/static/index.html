@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <title>Tienda de computadores</title>
+        <meta name="author" content="Luis Felipe Linares Perdomo">
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <base href="/"/>
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="/css/normalize.css"> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@500&family=Russo+One&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+        <style>
+
+            body {
+                background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
+                width: 100vw;
+                height: 100vh;
+            }
+
+            .unauthenticated {
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                width:100%; 
+                height:100%; 
+                text-align: center;
+                padding: 0;
+            }
+
+            div.container-fluid {
+                width: 100%; 
+                height: 40%; 
+                padding: 2% 2% 1% 2%; 
+                box-shadow: 0 0 10vh  #000000; 
+                border: 0.3vh solid #000000;
+                background-image: linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%);
+            }
+
+            .authenticated{
+                display: none; 
+                justify-content: center;
+                align-items: center;
+                width:100vw; 
+                height:100vh; 
+                text-align: center; 
+                padding: 0;
+            }
+
+            p.card-text {
+                margin-bottom: 0;
+            }
+
+            .line-card{
+                color: #000; 
+                background-color: #000; 
+                height:0.2vh;
+            }
+
+            .links-card{
+                display: flex; 
+                align-items: center ;
+                 flex-direction: column ;
+            }
+
+            button.btn{
+                margin: 0.3vh 0;
+            }
+
+            .container-card {
+                display: block;
+                width: 80%;
+            }
+
+            .card-title {
+                font-family: 'Russo One', sans-serif;
+            }
+
+            .card-text, a.btn{
+                font-family: 'IBM Plex Sans Arabic', sans-serif;
+            }
+
+            @media only screen and (min-width: 0px) and (max-width:320px){
+                a.btn, button.btn {
+                    font-size: 1.6vh;
+                }
+            }
+
+            @media only screen and (min-width: 1024px){
+
+                img.card-img-top {
+                    width: 80%;
+                    margin: auto;
+                }
+
+                .card-title {
+                    font-size: 3.4vh;
+                }
+
+                .card-text {
+                    font-size: 1.8vh;
+                    font-family: 'IBM Plex Sans Arabic', sans-serif;
+                }
+
+                a.btn, button.btn {
+                    font-size: 1.9vh;
+                    margin-top: .6vh;
+                }
+
+                .line-card {
+                    border: .2vh solid #000;
+                }
+                
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="unauthenticated">
+            <div class="container-card">
+                <div class="card container-fluid">
+                    <img src="https://c4.wallpaperflare.com/wallpaper/281/315/629/video-game-tom-clancy-s-rainbow-six-siege-ela-tom-clancy-s-rainbow-six-siege-operation-blood-orchid-wallpaper-preview.jpg" class="card-img-top" alt="Image computer hacking" style="border-radius: 1%; border-color: #000;">
+                    <div class="card-body">
+                    <h5 class="card-title">Login de tienda de computadores.</h5>
+                    <p class="card-text">Para poder ingresar a la pagina principal de la tienda es necesario que se autentifique por medio de una cuenta de GitHub, en caso de no tener lo invitamos a crearse una.</p>
+                    <hr class="line-card">
+                    <a href="/oauth2/authorization/github" class="btn btn-primary"> Autenticarse con GitHub. </a>
+                    <hr class="line-card">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="authenticated">
+            <div class="container-card">
+                <div class="card container-fluid">
+                    <img src="https://c4.wallpaperflare.com/wallpaper/281/315/629/video-game-tom-clancy-s-rainbow-six-siege-ela-tom-clancy-s-rainbow-six-siege-operation-blood-orchid-wallpaper-preview.jpg" class="card-img-top" alt="Image computer hacking" style="border-radius: 1%; border-color: #000;">
+                    <div class="card-body">
+                    <h5 class="card-title"> - Bienvenid@! - </h5>
+                    <p class="card-text"> Gracias por iniciar sesión <span id="user"></span>, ya has ingresado a la pagina principal de la tienda de computadores, ahora puedes seleccionar una de las opciones de abajo.</p>
+                    <hr class="line-card">
+                    <div class="links-card">
+                        <a href="tienda.html" class="btn btn-primary"> Ir a la pagina de la tienda. </a>
+                        <button onClick="logout()" class="btn btn-danger">Cerrar sesión.</button>
+                        <a href="reporte.html" class="btn btn-primary" > Ir a la pagina de reportes. </a>
+                    </div>
+                    <hr class="line-card">
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script type="text/javascript">
+        $.get("/user", function (data) {
+            console.log("get");
+            console.log(data);
+            $("#user").html(data.name);
+            $(".unauthenticated").hide();
+            $(".authenticated").show();
+            login()
+        });
+
+        var login = function () {
+            var container = document.querySelector(".authenticated");
+            container.style.display = "flex";
+        }
+
+        var logout = function () {
+            $.post("/logout", function () {
+                $("#user").html("");
+                $(".unauthenticated").show();
+                $(".authenticated").hide();
+                var container = document.querySelector(".authenticated");
+                container.style.display = "none";
+            });
+            return true;
+        };
+    </script>
+</html>

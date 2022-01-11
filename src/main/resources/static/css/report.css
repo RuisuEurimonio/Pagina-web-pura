@@ -1,0 +1,207 @@
+body {
+    background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    height: 100%;
+    width: 100%;
+}
+
+:root{
+    --color-buttons: #f5a700;
+    --color-button2: rgb(80, 97, 248);
+}
+
+td, a, p, label, button-item {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+}
+
+h1, h3 {
+    font-family: 'Russo One', sans-serif;
+}
+
+li.actual-item {
+    background-color: var(--color-buttons);
+    border-radius: 2vh;
+}
+
+a.actual-link {
+    color: #000;
+    text-decoration: line-through;
+}
+
+.lista-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 5vh;
+    width: 100%;
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);;
+    padding: 0;
+}
+
+.item-nav {
+    list-style: none;
+    width: 25%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0;
+    background-color: transparent;
+    transition: 2s;
+}
+
+
+.link-nav {
+    text-decoration: none;
+    color: var(--color-buttons);
+    transition: 2s;
+}
+
+.item-nav:hover {
+    transition: 2s;
+    background-color: var(--color-buttons);
+    border-radius: 2vh;
+}
+
+.link-nav:hover {
+    transition: 2s;
+    color: #000;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 2vh;
+}
+
+#reservationform {
+    width: 95%;
+    margin: auto;
+}
+
+div.row {
+    justify-content: space-around;
+}
+
+div.row > *{
+    width: 40%;
+}
+
+.group-dates {
+    display: flex;
+    flex-direction: column;
+}
+
+.ContainerDates {
+    margin: 5%;
+}
+
+.buttons-report {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button-item {
+    padding: 1vh;
+    background-color: var(--color-button2);
+    border:0.3vh solid rgb(80, 97, 248);
+    border-radius:1.5vh;
+    transition: 2s;
+}
+
+.button-item:hover {
+    background-color:var(--color-button2);
+    color: var(--color-buttons);
+    transition: 2s;
+    border-color: var(--color-buttons);
+}
+
+.button-selected {
+    background-color:var(--color-button2);
+    color: var(--color-buttons);
+    transition: 2s;
+    border-color: var(--color-buttons);
+}
+
+input.alert-validation {
+    border: 0.3vh solid rgb(184, 3, 3);
+}
+
+div.col-auto {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.fas {
+    margin-left: 0.5vh;
+    color: rgb(184, 3, 3);
+}
+
+table.table{
+    text-align: center;
+}
+
+@media only screen and (max-width: 425px) {
+
+    div.row{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .buttons-report{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button-item{
+        font-size:2vh;
+        margin-bottom: 1vh;
+    }
+
+    .tbl1 > tbody, .tbl3 > tbody{
+        overflow-x: scroll;
+    }
+
+    div.row > * {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+
+    button.button-item {
+        font-size: 1.6vh
+    }
+
+    label.col-form-label, input.form-control, i.fas {
+        font-size:2vh
+    }
+
+    a, p, label{
+        font-size: 2.6vh;
+    }
+
+    td, th {
+        font-size: 1.8vh;
+    }
+
+    #title-text {
+        font-size: 3.4vh
+    }
+
+    #subtitle-text {
+        font-size: 3vh;
+    }
+
+    @media only screen and (min-width: 1024px) and (max-width: 1440px) {
+        button.button-item {
+            font-size: 2vh
+        }
+    }
+
+}

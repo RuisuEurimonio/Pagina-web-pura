@@ -1,0 +1,232 @@
+body {
+    background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    height: 100%;
+    width: 100%;
+}
+
+:root{
+    --color-buttons: #f5a700;
+    --color-button2: rgb(80, 97, 248);
+}
+
+li.actual-item {
+    background-color: var(--color-buttons);
+    border-radius: 2vh;
+}
+
+a.actual-link {
+    color: #000;
+    text-decoration: line-through;
+}
+
+.lista-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 5vh;
+    width: 100%;
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);;
+    padding: 0;
+}
+
+.item-nav {
+    list-style: none;
+    width: 25%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0;
+    background-color: transparent;
+    transition: 2s;
+}
+
+
+.link-nav {
+    text-decoration: none;
+    color: var(--color-buttons);
+    transition: 2s;
+}
+
+.item-nav:hover {
+    transition: 2s;
+    background-color: var(--color-buttons);
+    border-radius: 2vh;
+}
+
+.link-nav:hover {
+    transition: 2s;
+    color: #000;
+}
+
+h1.title {
+    text-align: center;
+    margin-bottom: 2vh;
+    font-family: 'Russo One', sans-serif;
+    font-size: 4vh;
+}
+
+.subtitle {
+    text-align: center;
+    font-family: 'Russo One', sans-serif;
+    font-size: 3.1vh;
+}
+
+h3.subtitleForm {
+    font-family: 'Russo One', sans-serif;
+}
+
+p, a, button, div{
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    font-size: 2.1vh;
+}
+
+.content-body {
+    width: 80%;
+    margin: auto;
+}
+
+.client, .message, .computer, .category, .reservation, .admin {
+    margin: 2vh auto;
+}
+
+.clientForm, .messageForm, .computerForm, .categoryForm, .reservationForm, .adminForm {
+    width: 98%;
+    padding: 2%;
+    margin: auto;
+    border: .2vh solid #000000;
+    border-radius: 2vh;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    box-shadow: 0 0 2vh #000;
+}
+
+.container-client, .container-message, .container-computer, .container-category, .container-reservation, .container-admin {
+    width: 80%;
+    margin: 2vh auto;
+}
+
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+
+button.btn {
+    margin: 1vh;
+}
+
+tbody {
+    text-align: center;
+}
+
+#messageComputer, #reservationComputer, #reservationClient {
+    margin-bottom: 1.5vh;
+}
+
+div.btn-group {
+    display: flex;
+    justify-content:space-evenly;
+    align-items:center;
+    flex-direction:row;
+    align-content: center;
+}
+
+button.activeBtn {
+    background-color: #a166e0;
+    border: .3vh solid var(--color-buttons);
+    border-radius: 2vh;
+    transition: 1s;
+    padding: .6vh 1vh;
+    color: var(--color-buttons);
+    box-shadow: 0 0 1vh #000;
+    text-decoration: line-through;
+}
+
+.button-nav {
+    background-color: transparent;
+    border: .2vh solid transparent;
+    border-radius: 0;
+    transition: 2s;
+    padding: 0;
+    box-shadow: 0 0 0 #000;
+}
+
+.button-nav:hover{
+    background-color: #bc8dee;
+    transition: 2s;
+    border-radius: 1vh;
+    padding: .3vh .5vh;
+    box-shadow: 0 0 .5vh #000;
+}
+
+@media only screen and (min-width: 0px) and (max-width:570px) {
+    div.btn-group {
+        flex-direction: column;
+    }
+
+    .buttons{
+        flex-direction: column;
+    }
+
+    button.btn {
+        font-size: 1.6vh
+    }
+
+    button.button-nav {
+        margin: .4vh auto;
+    }
+
+    tbody{
+        font-size: 1.6vh;
+    }
+    
+    span.input-group-text {
+        font-size: .5vh;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    h1.title{
+        font-size: 4vh;
+    }
+    
+    .subtitle {
+        text-align: center;
+        font-family: 'Russo One', sans-serif;
+        font-size: 3.6vh
+    }
+
+    h3.subtitleForm {
+        font-family: 'Russo One', sans-serif;
+        font-size: 3.3vh
+    }
+    
+    p, a, button, div{
+        font-family: 'IBM Plex Sans Arabic', sans-serif;
+        font-size: 2vh
+    }
+
+    tbody {
+        font-size: 2vh;
+    }
+
+    .input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu){
+        font-size: 2vh;
+    }
+
+    .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){
+        font-size:2vh;
+    }
+
+    select.form-select {
+        font-size:2vh;
+    }
+
+    button.btn {
+        font-size: 2vh;
+    }
+}
